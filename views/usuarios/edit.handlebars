@@ -1,0 +1,35 @@
+<h1>Editar Usuário</h1>
+
+<form action="/usuarios/atualizar/{{usuario.id}}" method="POST">
+    <div>
+        <label>Nome:</label>
+        <input type="text" name="nome" value="{{usuario.nome}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{usuario.email}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Matrícula:</label>
+        <input type="text" name="matricula" value="{{usuario.matricula}}">
+    </div>
+    <br>
+    <div>
+        <label>Senha:</label>
+        <input type="password" name="senha" placeholder="Deixe em branco para manter a atual">
+    </div>
+    <br>
+    <div>
+        <label>Perfil:</label>
+        <select name="perfil" required>
+            <option value="Gestão" {{#if (eq usuario.perfil "Gestão")}}selected{{/if}}>Gestão</option>
+            <option value="Docente" {{#if (eq usuario.perfil "Docente")}}selected{{/if}}>Docente</option>
+            <option value="Discente" {{#if (eq usuario.perfil "Discente")}}selected{{/if}}>Discente</option>
+        </select>
+    </div>
+    <br>
+    <button type="submit">Atualizar</button>
+    <a href="/usuarios">Cancelar</a>
+</form>
