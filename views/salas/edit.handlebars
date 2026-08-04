@@ -1,0 +1,21 @@
+<h1>Editar Sala: {{sala.sala}}</h1>
+
+<form action="/salas/update/{{sala.id_sala}}" method="POST">
+    <div>
+        <label>Nome da Sala:</label>
+        <input type="text" name="sala" value="{{sala.sala}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Capacidade:</label>
+        <input type="number" name="capacidade" value="{{sala.capacidade}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Disponível:</label>
+        <input type="checkbox" name="disponivel" {{#if sala.disponivel}}checked{{/if}}>
+    </div>
+    <br>
+    <button type="submit">Atualizar</button>
+    <a href="/salas">Cancelar</a>
+</form>

@@ -1,0 +1,34 @@
+<h1>Lista de Salas</h1>
+
+<a href="/salas/novo">Nova Sala</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Disponível</th>
+            <th>Capacidade</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each salas}}
+        <tr>
+            <td>{{this.id_sala}}</td>
+            <td>{{this.sala}}</td>
+            <td>{{#if this.disponivel}}Sim{{else}}Não{{/if}}</td>
+            <td>{{this.capacidade}}</td>
+            <td>
+                <a href="/salas/editar/{{this.id_sala}}">Editar</a>
+                |
+                <a href="/salas/deletar/{{this.id_sala}}" onclick="return confirm('Tem certeza?')">Deletar</a>
+            </td>
+        </tr>
+        {{else}}
+        <tr>
+            <td colspan="5">Nenhuma sala cadastrada.</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

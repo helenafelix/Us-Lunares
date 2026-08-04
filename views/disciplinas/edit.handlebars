@@ -1,0 +1,26 @@
+<h1>Editar Disciplina: {{disciplina.materia}}</h1>
+
+<form action="/disciplinas/update/{{disciplina.codigo}}" method="POST">
+    <div>
+        <label>Nome da Matéria:</label>
+        <input type="text" name="materia" value="{{disciplina.materia}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Professor:</label>
+        <input type="text" name="professor" value="{{disciplina.professor}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Quantidade de Aulas:</label>
+        <input type="number" name="qtdAulas" value="{{disciplina.qtdAulas}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Faltas:</label>
+        <input type="number" name="faltas" value="{{disciplina.faltas}}">
+    </div>
+    <br>
+    <button type="submit">Atualizar</button>
+    <a href="/disciplinas">Cancelar</a>
+</form>

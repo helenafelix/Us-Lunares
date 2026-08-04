@@ -2,8 +2,13 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const sequelize = require('./config/database');
-const Usuario = require('./models/Usuario');
 require('dotenv').config();
+
+// Importar modelos
+const Usuario = require('./models/Usuario');
+const Sala = require('./models/Sala');
+const Disciplina = require('./models/Disciplina');
+const Horario = require('./models/Horario');
 
 const app = express();
 
@@ -12,7 +17,7 @@ app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main',
     runtimeOptions: {
         allowProtoPropertiesByDefault: true,
-        allowProtoMethodsByDefault: true, 
+        allowProtoMethodsByDefault: true,
     },
     helpers: {
         eq: (a, b) => a === b
@@ -28,13 +33,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const salaRoutes = require('./routes/salaRoutes');
+const disciplinaRoutes = require('./routes/disciplinaRoutes');
+const horarioRoutes = require('./routes/horarioRoutes');
+
 app.use('/usuarios', usuarioRoutes);
+app.use('/salas', salaRoutes);
+app.use('/disciplinas', disciplinaRoutes);
+app.use('/horarios', horarioRoutes);
 
 app.get('/', (req, res) => {
-    res.redirect('/usuarios');
+    res.render('home');
 });
 
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 3000;
 
 sequelize.authenticate()
     .then(() => {
