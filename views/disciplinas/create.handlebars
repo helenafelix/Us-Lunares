@@ -1,0 +1,26 @@
+<h1>Criar Disciplina</h1>
+
+<form action="/disciplinas/add" method="POST">
+    <div>
+        <label>Nome da Matéria:</label>
+        <input type="text" name="materia" required>
+    </div>
+    <br>
+    <div>
+        <label>Professor:</label>
+        <input type="text" name="professor" required>
+    </div>
+    <br>
+    <div>
+        <label>Quantidade de Aulas:</label>
+        <input type="number" name="qtdAulas" value="0" required>
+    </div>
+    <br>
+    <div>
+        <label>Faltas:</label>
+        <input type="number" name="faltas" value="0">
+    </div>
+    <br>
+    <button type="submit">Salvar</button>
+    <a href="/disciplinas">Cancelar</a>
+</form>

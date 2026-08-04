@@ -1,0 +1,36 @@
+<h1>Lista de Disciplinas</h1>
+
+<a href="/disciplinas/novo">Nova Disciplina</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Matéria</th>
+            <th>Professor</th>
+            <th>Qtd. Aulas</th>
+            <th>Faltas</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each disciplinas}}
+        <tr>
+            <td>{{this.codigo}}</td>
+            <td>{{this.materia}}</td>
+            <td>{{this.professor}}</td>
+            <td>{{this.qtdAulas}}</td>
+            <td>{{this.faltas}}</td>
+            <td>
+                <a href="/disciplinas/editar/{{this.codigo}}">Editar</a>
+                |
+                <a href="/disciplinas/deletar/{{this.codigo}}" onclick="return confirm('Tem certeza?')">Deletar</a>
+            </td>
+        </tr>
+        {{else}}
+        <tr>
+            <td colspan="6">Nenhuma disciplina cadastrada.</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

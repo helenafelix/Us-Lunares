@@ -1,0 +1,31 @@
+<h1>Criar Horário</h1>
+
+<form action="/horarios/add" method="POST">
+    <div>
+        <label>Horário:</label>
+        <input type="time" name="horarios" required>
+    </div>
+    <br>
+    <div>
+        <label>Disciplina:</label>
+        <select name="disciplinas" required>
+            <option value="">Selecione</option>
+            {{#each disciplinas}}
+            <option value="{{this.materia}}">{{this.materia}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    <div>
+        <label>Sala/Laboratório:</label>
+        <select name="sala_lab" required>
+            <option value="">Selecione</option>
+            {{#each salas}}
+            <option value="{{this.sala}}">{{this.sala}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    <button type="submit">Salvar</button>
+    <a href="/horarios">Cancelar</a>
+</form>

@@ -1,0 +1,21 @@
+<h1>Criar Sala</h1>
+
+<form action="/salas/add" method="POST">
+    <div>
+        <label>Nome da Sala:</label>
+        <input type="text" name="sala" required>
+    </div>
+    <br>
+    <div>
+        <label>Capacidade:</label>
+        <input type="number" name="capacidade" required>
+    </div>
+    <br>
+    <div>
+        <label>Disponível:</label>
+        <input type="checkbox" name="disponivel" checked>
+    </div>
+    <br>
+    <button type="submit">Salvar</button>
+    <a href="/salas">Cancelar</a>
+</form>

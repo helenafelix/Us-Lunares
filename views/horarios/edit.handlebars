@@ -1,0 +1,33 @@
+<h1>Editar Horário</h1>
+
+<form action="/horarios/update/{{horario.id_horario}}" method="POST">
+    <div>
+        <label>Horário:</label>
+        <input type="time" name="horarios" value="{{horario.horarios}}" required>
+    </div>
+    <br>
+    <div>
+        <label>Disciplina:</label>
+        <select name="disciplinas" required>
+            {{#each disciplinas}}
+            <option value="{{this.materia}}" {{#if (eq this.materia ../horario.disciplinas)}}selected{{/if}}>
+                {{this.materia}}
+            </option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    <div>
+        <label>Sala/Laboratório:</label>
+        <select name="sala_lab" required>
+            {{#each salas}}
+            <option value="{{this.sala}}" {{#if (eq this.sala ../horario.sala_lab)}}selected{{/if}}>
+                {{this.sala}}
+            </option>
+            {{/each}}
+        </select>
+    </div>
+    <br>
+    <button type="submit">Atualizar</button>
+    <a href="/horarios">Cancelar</a>
+</form>
