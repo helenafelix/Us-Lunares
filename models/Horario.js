@@ -13,11 +13,19 @@ const Horario = sequelize.define('Horario', {
     },
     disciplinas: {
         type: DataTypes.STRING(20),
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: 'disciplinas', 
+            key: 'materia'
+        }
     },
     sala_lab: {
         type: DataTypes.STRING(20),
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: 'salas',
+            key: 'sala'
+        }
     }
 }, {
     tableName: 'horarios',

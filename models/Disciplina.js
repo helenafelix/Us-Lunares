@@ -27,7 +27,7 @@ const Disciplina = sequelize.define('Disciplina', {
         defaultValue: 0
     }
 }, {
-    tableName: 'disciplina',
+    tableName: 'disciplinas',
     timestamps: false
 });
 
